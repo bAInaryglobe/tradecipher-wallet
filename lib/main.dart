@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '/home/nathfavour/Documents/code/tradecipher/tradecipher/lib/screens/Home.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'screens/Home.dart';
 
 void main() {
   runApp(const TradeCipherApp());
@@ -13,8 +14,19 @@ class TradeCipherApp extends StatelessWidget {
     return MaterialApp(
       title: 'TradeCipher',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF6C63FF),
+          brightness: Brightness.light,
+        ),
+        textTheme: GoogleFonts.poppinsTextTheme(),
         useMaterial3: true,
+        cardTheme: CardTheme(
+          elevation: 8,
+          shadowColor: Colors.black26,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+        ),
       ),
       home: const TradeCipherHomeScreen(),
     );
