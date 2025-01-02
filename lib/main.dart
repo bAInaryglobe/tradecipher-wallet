@@ -11,8 +11,6 @@ class TradeCipherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    
     return MaterialApp(
       title: 'TradeCipher',
       theme: ThemeData(
@@ -20,17 +18,33 @@ class TradeCipherApp extends StatelessWidget {
           seedColor: const Color(0xFF6C63FF),
           brightness: Brightness.light,
         ),
-        textTheme: GoogleFonts.poppinsTextTheme(textTheme),
+        textTheme: GoogleFonts.poppinsTextTheme(),
         useMaterial3: true,
         cardTheme: CardTheme(
-          elevation: 8,
-          shadowColor: Colors.black26,
+          elevation: 4,
+          shadowColor: Colors.black12,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
         ),
+        navigationBarTheme: NavigationBarThemeData(
+          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+          elevation: 8,
+          backgroundColor: Colors.white,
+        ),
       ),
-      home: const TradeCipherHomeScreen(),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF6C63FF),
+          brightness: Brightness.dark,
+        ),
+        textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
+        useMaterial3: true,
+      ),
+      home: const DefaultTabController(
+        length: 3,
+        child: TradeCipherHomeScreen(),
+      ),
     );
   }
 }
