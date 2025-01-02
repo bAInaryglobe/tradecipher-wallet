@@ -11,6 +11,8 @@ class TradeCipherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    
     return MaterialApp(
       title: 'TradeCipher',
       theme: ThemeData(
@@ -18,7 +20,7 @@ class TradeCipherApp extends StatelessWidget {
           seedColor: const Color(0xFF6C63FF),
           brightness: Brightness.light,
         ),
-        textTheme: GoogleFonts.poppinsTextTheme(),
+        textTheme: GoogleFonts.poppinsTextTheme(textTheme),
         useMaterial3: true,
         cardTheme: CardTheme(
           elevation: 8,
